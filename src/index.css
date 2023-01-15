@@ -52,17 +52,97 @@ button.roll :active {
   background-color: white;
   width: 50px;
   height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-weight: bold;
   border: none;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
-  padding: 10px 20px;
+  padding: 4px;
   cursor: pointer;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  align-items: center;
+  justify-items: center;
+  grid-template-areas:
+    'tl . tr'
+    'l  m  r'
+    'bl . br';
 }
 
 .board .die.isheld {
   background-color: var(--green);
+}
+
+.board .die .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 20px;
+  background: black;
+}
+
+.board .die.value-1 .dot {
+  grid-area: tl;
+}
+.board .die.value-2 .dot:nth-child(1) {
+  grid-area: tl;
+}
+.board .die.value-2 .dot:nth-child(2) {
+  grid-area: br;
+}
+.board .die.value-3 .dot:nth-child(1) {
+  grid-area: tl;
+}
+.board .die.value-3 .dot:nth-child(2) {
+  grid-area: m;
+}
+.board .die.value-3 .dot:nth-child(3) {
+  grid-area: br;
+}
+
+.board .die.value-4 .dot:nth-child(1) {
+  grid-area: tl;
+}
+.board .die.value-4 .dot:nth-child(2) {
+  grid-area: tr;
+}
+.board .die.value-4 .dot:nth-child(3) {
+  grid-area: bl;
+}
+.board .die.value-4 .dot:nth-child(4) {
+  grid-area: br;
+}
+
+.board .die.value-5 .dot:nth-child(1) {
+  grid-area: tl;
+}
+.board .die.value-5 .dot:nth-child(2) {
+  grid-area: tr;
+}
+.board .die.value-5 .dot:nth-child(3) {
+  grid-area: bl;
+}
+.board .die.value-5 .dot:nth-child(4) {
+  grid-area: br;
+}
+.board .die.value-5 .dot:nth-child(5) {
+  grid-area: m;
+}
+
+.board .die.value-6 .dot:nth-child(1) {
+  grid-area: tl;
+}
+.board .die.value-6 .dot:nth-child(2) {
+  grid-area: tr;
+}
+.board .die.value-6 .dot:nth-child(3) {
+  grid-area: bl;
+}
+.board .die.value-6 .dot:nth-child(4) {
+  grid-area: br;
+}
+.board .die.value-6 .dot:nth-child(5) {
+  grid-area: l;
+}
+.board .die.value-6 .dot:nth-child(6) {
+  grid-area: r;
 }
