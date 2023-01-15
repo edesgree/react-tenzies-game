@@ -7,11 +7,11 @@ import Confetti from './components/Confetti';
 function App() {
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
-  const [rollCount, setRollCount] = React.useState(0);
+  const [rollCount, setRollCount] = React.useState(1);
   const [time, setTime] = React.useState(0);
   const [timeRunning, setTimeRunning] = React.useState(false);
   const [timerInit, setTimerInit] = React.useState(true);
-  //let timerInit = true;
+  const [bestTime, setBestTime] = React.useState(getBestTime() || 0);
 
   React.useEffect(() => {
     let interval;
@@ -31,8 +31,13 @@ function App() {
     const allSameNb = dice.every((die) => die.value == firstValue);
 
     if (allHeld && allSameNb) {
+      console.log('current time', time);
+      console.log('best time', bestTime);
       setTenzies(true);
       setTimeRunning(false);
+      if (time < bestTime || bestTime == 0) {
+        saveBestTime(time);
+      }
     }
   }, [dice]);
 
@@ -59,13 +64,14 @@ function App() {
     if (timerInit) {
       setTimeRunning(true);
     }
-    // when game is over, a click will set new dice, and reset/restart timer
+    // when game is over, a click will set new dice, and reset/restart timer and roll counter
     if (tenzies) {
       setDice(allNewDice());
       setTenzies(false);
       setTime(0);
       setTimerInit(true);
       setTimeRunning(true);
+      setRollCount(1);
     } else {
       setTimerInit(false);
       setDice((oldDice) =>
@@ -82,6 +88,13 @@ function App() {
         return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
       })
     );
+  }
+  function saveBestTime(time) {
+    localStorage.setItem('bestTime', time);
+    setBestTime(time);
+  }
+  function getBestTime() {
+    return localStorage.getItem('bestTime');
   }
   const diceElements = dice.map((die) => (
     <Die
@@ -112,7 +125,7 @@ function App() {
       </p>
       <section className="board">{diceElements}</section>
       <footer>
-        <Timer time={time} />
+        <Timer time={time} bestTime={bestTime} />
         <button className="roll" onClick={handleRoll}>
           {tenzies ? 'New Game' : 'Roll'}
         </button>

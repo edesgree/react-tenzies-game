@@ -19,7 +19,6 @@ body {
 main {
   background: rgba(245, 245, 245, 1);
   padding: 20px;
-  max-width: 400px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;

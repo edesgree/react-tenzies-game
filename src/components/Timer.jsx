@@ -10,6 +10,8 @@ export default function Timer(props) {
   return (
     <div className="time-tracking">
       Time: {millisToMinutesAndSeconds(props.time)}
+      <br />
+      <small>Best Time: {millisToMinutesAndSeconds(props.bestTime)}</small>
     </div>
   );
 }
