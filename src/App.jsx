@@ -1,7 +1,8 @@
 import React from 'react';
-import Die from './Die';
+import Die from './components/Die';
+import Timer from './components/Timer';
 import { nanoid } from 'nanoid';
-import Confetti from './Confetti';
+import Confetti from './components/Confetti';
 
 function App() {
   const [dice, setDice] = React.useState(allNewDice());
@@ -70,7 +71,7 @@ function App() {
       </p>
       <section className="board">{diceElements}</section>
       <footer>
-        <div className="time-tracking">Time: 4</div>
+        <Timer />
         <button className="roll" onClick={handleRoll}>
           {tenzies ? 'New Game' : 'Roll'}
         </button>

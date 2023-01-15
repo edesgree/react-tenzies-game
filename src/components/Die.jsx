@@ -1,9 +1,9 @@
-//const [isMatch, setIsMatch] = React.useState(false)
+import React from 'react';
 
 export default function Die(props) {
   const dots = [];
   for (let i = 0; i < props.value; i++) {
-    dots.push(<span className="dot"></span>);
+    dots.push(<span key={i} className="dot"></span>);
   }
   return (
     <div
