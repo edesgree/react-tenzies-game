@@ -4,6 +4,7 @@
 :root {
   --green: rgba(89, 227, 145, 1);
   --blue: rgba(80, 53, 255, 1);
+  --light-blue: rgba(46, 217, 255, 0.9);
 }
 body {
   margin: 0;
@@ -23,9 +24,9 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  -webkit-box-shadow: 0px 0px 114px 0px rgba(46, 217, 255, 0.9);
-  -moz-box-shadow: 0px 0px 114px 0px rgba(46, 217, 255, 0.9);
-  box-shadow: 0px 0px 114px 0px rgba(46, 217, 255, 0.9);
+  -webkit-box-shadow: 0px 0px 114px 0px --light-blue;
+  -moz-box-shadow: 0px 0px 114px 0px --light-blue;
+  box-shadow: 0px 0px 114px 0px --light-blue;
 }
 
 button {
@@ -41,6 +42,10 @@ button.roll {
   background: var(--blue);
   color: white;
 }
+button.roll:hover {
+  background: var(--light-blue);
+  color: white;
+}
 button.roll :active {
   box-shadow: inset 5px 5px 10px -3px rgba(82, 12, 12, 0.7);
 }
@@ -48,7 +53,7 @@ button.roll :active {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
   gap: 15px;
-  margin-bottom: 20px;
+  margin: 30px auto;
 }
 
 .board .die {
@@ -75,7 +80,9 @@ button.roll :active {
 .board .die.isheld {
   background-color: var(--green);
 }
-
+.board .die:hover:not(.isheld) {
+  background-color: #59e39157;
+}
 .board .die .dot {
   display: inline-block;
   width: 8px;
@@ -152,8 +159,11 @@ button.roll :active {
 }
 
 footer {
-  display: flex;
+  display: grid;
+  grid-template: auto auto / repeat(3, 1fr);
   width: 100%;
   align-items: center;
-  justify-content: space-between;
+}
+footer .roll-tracking {
+  justify-self: end;
 }

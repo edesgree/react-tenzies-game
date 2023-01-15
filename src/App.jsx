@@ -6,6 +6,7 @@ import Confetti from './Confetti';
 function App() {
   const [dice, setDice] = React.useState(allNewDice());
   const [tenzies, setTenzies] = React.useState(false);
+  const [rollCount, setRollCount] = React.useState(0);
 
   React.useEffect(() => {
     const allHeld = dice.every((die) => die.isHeld);
@@ -40,6 +41,7 @@ function App() {
           return die.isHeld ? die : generateDie();
         })
       );
+      setRollCount((prevCount) => prevCount + 1);
     }
   }
   function holdDice(id) {
@@ -72,7 +74,7 @@ function App() {
         <button className="roll" onClick={handleRoll}>
           {tenzies ? 'New Game' : 'Roll'}
         </button>
-        <div className="roll-tracking">Rolls: 4</div>
+        <div className="roll-tracking">Rolls: {rollCount}</div>
       </footer>
     </main>
   );
