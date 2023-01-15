@@ -67,9 +67,13 @@ function App() {
         current value between rolls.
       </p>
       <section className="board">{diceElements}</section>
-      <button className="roll" onClick={handleRoll}>
-        {tenzies ? 'New Game' : 'Roll'}
-      </button>
+      <footer>
+        <div className="time-tracking">Time: 4</div>
+        <button className="roll" onClick={handleRoll}>
+          {tenzies ? 'New Game' : 'Roll'}
+        </button>
+        <div className="roll-tracking">Rolls: 4</div>
+      </footer>
     </main>
   );
 }
