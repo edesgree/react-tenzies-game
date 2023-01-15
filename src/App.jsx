@@ -104,15 +104,6 @@ function App() {
       value={die.value}
     />
   ));
-  /*
-  function timeCount() {
-    setInterval(
-      setTimer((prevTime) => prevTime++),
-      1000
-    );
-
-    return 2;
-  }*/
 
   return (
     <main>
@@ -120,8 +111,8 @@ function App() {
 
       <h1>Tenzies</h1>
       <p>
-        Roll until all dice are the same. Click each die to freeze it at its
-        current value between rolls.
+        Roll until all dice are the same.
+        <br /> Click each die to freeze it at its current value between rolls.
       </p>
       <section className="board">{diceElements}</section>
       <footer>
