@@ -8,17 +8,12 @@ function App() {
   const [tenzies, setTenzies] = React.useState(false);
 
   React.useEffect(() => {
-    console.log('Dice state changed');
     const allHeld = dice.every((die) => die.isHeld);
     const firstValue = dice[0].value;
     const allSameNb = dice.every((die) => die.value == firstValue);
 
-    console.log('allisheld', allHeld);
-    console.log('allsameNB', allSameNb);
-
     if (allHeld && allSameNb) {
       setTenzies(true);
-      console.log('You won!');
     }
   }, [dice]);
   function allNewDice() {
@@ -26,7 +21,6 @@ function App() {
     for (let i = 0; i < 10; i++) {
       newDice.push(generateDie());
     }
-    console.log(newDice);
     return newDice;
   }
   function generateDie() {
@@ -54,7 +48,6 @@ function App() {
         return die.id === id ? { ...die, isHeld: !die.isHeld } : die;
       })
     );
-    console.log('hello', id);
   }
   const diceElements = dice.map((die) => (
     <Die
