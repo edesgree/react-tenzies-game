@@ -81,7 +81,7 @@ button.roll :active {
 }
 
 .board .die.value-1 .dot {
-  grid-area: tl;
+  grid-area: m;
 }
 .board .die.value-2 .dot:nth-child(1) {
   grid-area: tl;

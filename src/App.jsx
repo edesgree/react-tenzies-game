@@ -66,43 +66,7 @@ function App() {
         Roll until all dice are the same. Click each die to freeze it at its
         current value between rolls.
       </p>
-      <section className="board">
-        <div className="die value-1">
-          <span className="dot"></span>
-        </div>
-        <div className="die value-2">
-          <span className="dot"></span>
-          <span className="dot"></span>
-        </div>
-        <div className="die value-3">
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-        </div>
-        <div className="die value-4">
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-        </div>
-        <div className="die value-5">
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-        </div>
-        <div className="die value-6">
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-          <span className="dot"></span>
-        </div>
-
-        {/*diceElements*/}
-      </section>
+      <section className="board">{diceElements}</section>
       <button className="roll" onClick={handleRoll}>
         {tenzies ? 'New Game' : 'Roll'}
       </button>
