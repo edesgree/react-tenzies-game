@@ -26,6 +26,7 @@ It is bootstraped with Vite.js.
 - game of Tenzies: you have to roll 10 dice and keep the similar ones until you have all of them with the same value.
 - timer (best time is kept in localStorage)
 - roll count
+- css dice with grid CSS
 
 ## What I learned
 
